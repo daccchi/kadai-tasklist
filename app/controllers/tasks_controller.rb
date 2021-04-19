@@ -50,6 +50,11 @@ class TasksController < ApplicationController
   
   
   private
+  
+  
+    def set_message
+    @message = Message.find(params[:id])
+    end
 
   # Strong Parameter
   def message_params
