@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     
   def index
-      @mtasks = Task.all
+      @tasks = Task.all
   end
 
   def show
@@ -34,6 +34,7 @@ class TasksController < ApplicationController
     if @task.update(message_params)
       flash[:success] = 'Task は正常に更新されました'
       redirect_to @task
+    else
       flash.now[:danger] = 'Task は更新されませんでした'
       render :edit
     end
@@ -44,7 +45,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     flash[:success] = 'Task は正常に削除されました'
-    redirect_to messages_url
+    redirect_to tasks_url
   end
   
   
